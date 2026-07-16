@@ -60,11 +60,8 @@ pip install Flask flask-cors python-dotenv
 
 ## База данных
 
-- **Free-тариф:** всё пишется в файл `backend/dev.db` на диске PA. Настраивать
-  ничего не нужно — работает само.
-- **Turso:** нужен платный тариф (на free-тарифе закрыт исходящий интернет).
-  Тогда: `pip install libsql-experimental`, задать `TURSO_DATABASE_URL` и
-  `TURSO_AUTH_TOKEN` (в WSGI-файле через `os.environ` или в `backend/.env`).
+Всё пишется в файл `backend/dev.db` (SQLite) прямо на диске PA. Настраивать
+ничего не нужно — работает само.
 
 ## Обновление сайта
 
