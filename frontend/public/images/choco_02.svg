@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Milka Milk Classic">
+  <rect width="400" height="300" fill="#7b4ea3"/>
+  <rect x="26" y="26" width="348" height="248" rx="14" fill="#9b6fc4" opacity="0.35"/>
+  <rect x="26" y="120" width="348" height="60" fill="#9b6fc4" opacity="0.9"/>
+  <text x="200" y="100" text-anchor="middle" font-family="Georgia, serif" font-size="34" font-weight="700" fill="#ffffff">Milka</text>
+  <text x="200" y="158" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#ffffff" letter-spacing="1">Milk Classic</text>
+  <text x="200" y="232" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#ffffff" opacity="0.75">CHOCOLATE</text>
+</svg>

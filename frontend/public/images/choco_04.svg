@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Rimi Sea Salt Caramel">
+  <rect width="400" height="300" fill="#c0392b"/>
+  <rect x="26" y="26" width="348" height="248" rx="14" fill="#e05545" opacity="0.35"/>
+  <rect x="26" y="120" width="348" height="60" fill="#e05545" opacity="0.9"/>
+  <text x="200" y="100" text-anchor="middle" font-family="Georgia, serif" font-size="34" font-weight="700" fill="#fff3f0">Rimi</text>
+  <text x="200" y="158" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#fff3f0" letter-spacing="1">Sea Salt Caramel</text>
+  <text x="200" y="232" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#fff3f0" opacity="0.75">CHOCOLATE</text>
+</svg>
