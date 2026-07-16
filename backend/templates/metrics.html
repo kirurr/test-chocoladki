@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Metrics — Chocolates</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, sans-serif; margin: 0; padding: 2rem; line-height: 1.5; }
+    h1 { margin-top: 0; }
+    h2 { margin-top: 2.5rem; border-bottom: 1px solid #8884; padding-bottom: .3rem; }
+    table { border-collapse: collapse; width: 100%; margin-top: .5rem; font-size: .95rem; }
+    th, td { border: 1px solid #8884; padding: .45rem .6rem; text-align: left; }
+    th { background: #8882; }
+    .muted { opacity: .6; }
+    .download { display: inline-block; margin-top: 1rem; padding: .5rem 1rem;
+      background: #6b4423; color: #fff; text-decoration: none; border-radius: 6px; }
+    .wrap { overflow-x: auto; }
+  </style>
+</head>
+<body>
+  <h1>Chocolate study metrics</h1>
+  <a class="download" href="/api/metrics.csv">Download CSV (raw sessions)</a>
+
+  <h2>Choices by product (A / B)</h2>
+  <div class="wrap">
+  <table>
+    <thead><tr><th>Product</th><th>Version A (discount)</th><th>Version B (brand)</th><th>Total</th></tr></thead>
+    <tbody>
+      {% for row in data.choices_by_product %}
+      <tr><td>{{ row.product }}</td><td>{{ row.A }}</td><td>{{ row.B }}</td><td>{{ row.A + row.B }}</td></tr>
+      {% else %}
+      <tr><td colspan="4" class="muted">No data yet</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Timing & completion by version</h2>
+  <div class="wrap">
+  <table>
+    <thead><tr><th>Version</th><th>Sessions</th><th>Completed</th><th>Avg. time to first click, s</th><th>Avg. time to choice, s</th></tr></thead>
+    <tbody>
+      {% for row in data.timing_by_variant %}
+      <tr><td>{{ row.variant }}</td><td>{{ row.sessions }}</td><td>{{ row.completed or 0 }}</td>
+          <td>{{ row.avg_first_click if row.avg_first_click is not none else '—' }}</td>
+          <td>{{ row.avg_choice if row.avg_choice is not none else '—' }}</td></tr>
+      {% else %}
+      <tr><td colspan="5" class="muted">No data yet</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Click behavior by version</h2>
+  <div class="wrap">
+  <table>
+    <thead><tr><th>Version</th><th>Total clicks</th><th>Clicked but not chosen</th><th>Non-final share, %</th><th>Avg. clicks to choice</th></tr></thead>
+    <tbody>
+      {% for row in data.click_behavior %}
+      <tr><td>{{ row.variant }}</td><td>{{ row.total_clicks }}</td><td>{{ row.non_final_clicks }}</td>
+          <td>{{ row.non_final_share if row.non_final_share is not none else '—' }}</td>
+          <td>{{ row.avg_clicks_to_choice if row.avg_clicks_to_choice is not none else '—' }}</td></tr>
+      {% else %}
+      <tr><td colspan="5" class="muted">No data yet</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Choice × “what matters most”</h2>
+  {% for priority, items in data.choice_by_priority.items() %}
+    <h3>{{ priority }}</h3>
+    <div class="wrap">
+    <table>
+      <thead><tr><th>Selected product</th><th>Count</th></tr></thead>
+      <tbody>
+        {% for it in items %}
+        <tr><td>{{ it.product }}</td><td>{{ it.n }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+  {% else %}
+    <p class="muted">No data yet</p>
+  {% endfor %}
+</body>
+</html>
