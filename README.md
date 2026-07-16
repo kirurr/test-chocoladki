@@ -63,9 +63,9 @@ The schema is created automatically on startup (`init_db`).
 
 ## Product images
 
-`frontend/public/images/` holds SVG placeholders `choco_01…choco_10`.
-To use real photos, replace the files keeping the same names (or update the
-`image` field in `backend/catalog.py`). Rebuild the frontend afterwards.
+`frontend/public/images/` holds the product photos `choco_01.jpg…choco_10.jpg`.
+To swap them, replace the files keeping the same names (or update the `image`
+field in `backend/catalog.py`). Rebuild the frontend afterwards.
 
 ## Data
 

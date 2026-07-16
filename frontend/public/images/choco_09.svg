@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Rimi Coconut Milk">
-  <rect width="400" height="300" fill="#7f8c5a"/>
-  <rect x="26" y="26" width="348" height="248" rx="14" fill="#97a56f" opacity="0.35"/>
-  <rect x="26" y="120" width="348" height="60" fill="#97a56f" opacity="0.9"/>
-  <text x="200" y="100" text-anchor="middle" font-family="Georgia, serif" font-size="34" font-weight="700" fill="#fbfff0">Rimi</text>
-  <text x="200" y="158" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#fbfff0" letter-spacing="1">Coconut Milk</text>
-  <text x="200" y="232" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#fbfff0" opacity="0.75">CHOCOLATE</text>
-</svg>

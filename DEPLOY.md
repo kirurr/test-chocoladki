@@ -98,5 +98,6 @@ pip install Flask flask-cors python-dotenv
 
 ## Реальные фото товаров
 
-Заменить SVG в `frontend/public/images/` на фото с теми же именами
-(`choco_01…choco_10`), затем пересобрать фронт (шаг 1) и перезалить.
+Фото лежат в `frontend/public/images/` как `choco_01.jpg…choco_10.jpg`.
+Чтобы заменить — положить новые с теми же именами, пересобрать фронт (шаг 1)
+и перезалить.

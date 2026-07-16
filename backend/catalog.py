@@ -8,7 +8,7 @@ CATALOG = [
         "discount_percent": 24,
         "rating": 4.7,
         "reviews_count": 1280,
-        "image": "/images/choco_01.svg",
+        "image": "/images/choco_01.jpg",
         "trusted": True,
     },
     {
@@ -20,7 +20,7 @@ CATALOG = [
         "discount_percent": 0,
         "rating": 4.4,
         "reviews_count": 940,
-        "image": "/images/choco_02.svg",
+        "image": "/images/choco_02.jpg",
         "trusted": True,
     },
     {
@@ -32,7 +32,7 @@ CATALOG = [
         "discount_percent": 24,
         "rating": 4.6,
         "reviews_count": 610,
-        "image": "/images/choco_03.svg",
+        "image": "/images/choco_03.jpg",
         "trusted": True,
     },
     {
@@ -44,7 +44,7 @@ CATALOG = [
         "discount_percent": 0,
         "rating": 4.1,
         "reviews_count": 210,
-        "image": "/images/choco_04.svg",
+        "image": "/images/choco_04.jpg",
         "trusted": False,
     },
     {
@@ -56,7 +56,7 @@ CATALOG = [
         "discount_percent": 20,
         "rating": 4.2,
         "reviews_count": 350,
-        "image": "/images/choco_05.svg",
+        "image": "/images/choco_05.jpg",
         "trusted": True,
     },
     {
@@ -68,7 +68,7 @@ CATALOG = [
         "discount_percent": 0,
         "rating": 4.5,
         "reviews_count": 480,
-        "image": "/images/choco_06.svg",
+        "image": "/images/choco_06.jpg",
         "trusted": True,
     },
     {
@@ -80,7 +80,7 @@ CATALOG = [
         "discount_percent": 38,
         "rating": 3.9,
         "reviews_count": 120,
-        "image": "/images/choco_07.svg",
+        "image": "/images/choco_07.jpg",
         "trusted": False,
     },
     {
@@ -92,7 +92,7 @@ CATALOG = [
         "discount_percent": 0,
         "rating": 4.8,
         "reviews_count": 760,
-        "image": "/images/choco_08.svg",
+        "image": "/images/choco_08.jpg",
         "trusted": True,
     },
     {
@@ -104,7 +104,7 @@ CATALOG = [
         "discount_percent": 28,
         "rating": 4.0,
         "reviews_count": 95,
-        "image": "/images/choco_09.svg",
+        "image": "/images/choco_09.jpg",
         "trusted": False,
     },
     {
@@ -116,7 +116,7 @@ CATALOG = [
         "discount_percent": 0,
         "rating": 4.3,
         "reviews_count": 540,
-        "image": "/images/choco_10.svg",
+        "image": "/images/choco_10.jpg",
         "trusted": True,
     },
 ]
