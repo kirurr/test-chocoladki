@@ -1,8 +1,7 @@
 # Деплой на PythonAnywhere
 
-Фронт собирается локально, на сервер заливаются готовые файлы — на PythonAnywhere
-ничего собирать не нужно. На сервере достаточно двух папок: `backend/` и
-`frontend/dist/`. Итоговая структура на PA:
+Готовые файлы проекта уже собраны — на PythonAnywhere ничего собирать не нужно.
+Структура проекта на сервере:
 
 ```
 python-react-chocolatki/
@@ -10,42 +9,17 @@ python-react-chocolatki/
   frontend/dist/
 ```
 
-## На своём компе
+## 1. Загрузить проект
+Вкладка **Files** → загрузить присланный архив проекта в домашнюю папку.
 
-### 1. Собрать фронт
-```powershell
-cd D:\code\python-react-chocolatki\frontend
-npm run build
-```
-Появится `frontend/dist`.
-
-### 2. Собрать zip только из нужного
-Вставить целиком в PowerShell:
-```powershell
-cd D:\code\python-react-chocolatki
-$stage = "$env:TEMP\choco_deploy\python-react-chocolatki"
-Remove-Item "$env:TEMP\choco_deploy" -Recurse -Force -ErrorAction SilentlyContinue
-New-Item -ItemType Directory -Force "$stage\frontend" | Out-Null
-Copy-Item backend "$stage\backend" -Recurse
-Copy-Item frontend\dist "$stage\frontend\dist" -Recurse
-Remove-Item "$stage\backend\venv","$stage\backend\dev.db","$stage\backend\__pycache__" -Recurse -Force -ErrorAction SilentlyContinue
-Compress-Archive -Path "$env:TEMP\choco_deploy\python-react-chocolatki" -DestinationPath D:\code\choco_deploy.zip -Force
-```
-Результат — `D:\code\choco_deploy.zip`.
-
-## На PythonAnywhere
-
-### 3. Загрузить архив
-Вкладка **Files** → загрузить `choco_deploy.zip` в домашнюю папку.
-
-### 4. Распаковать
+## 2. Распаковать
 Вкладка **Consoles** → **Bash**:
 ```bash
 cd ~
-unzip choco_deploy.zip
+unzip <имя-архива>.zip
 ```
 
-### 5. Создать виртуальное окружение
+## 3. Создать виртуальное окружение
 На PA надёжнее их встроенный `mkvirtualenv` (обычный `python -m venv` часто
 подолгу настраивает pip и кажется зависшим):
 ```bash
@@ -59,16 +33,16 @@ mkvirtualenv --python=/usr/bin/python3.10 chocolatki
 > ему доработать (30–60 сек, это не зависание); путь окружения тогда
 > `/home/ЛОГИН/python-react-chocolatki/backend/venv`.
 
-### 6. Поставить зависимости
+## 4. Поставить зависимости
 ```bash
 pip install Flask flask-cors python-dotenv
 ```
 На free-тарифе БД — локальный SQLite, поэтому `libsql-experimental` не нужен.
 
-### 7. Создать web app
+## 5. Создать web app
 Вкладка **Web** → **Add a new web app** → **Manual configuration** → **Python 3.10**.
 
-### 8. Настроить web app
+## 6. Настроить web app
 - **Virtualenv**: `/home/ЛОГИН/.virtualenvs/chocolatki`
 - **WSGI configuration file** (ссылка вверху страницы) → стереть всё, вставить:
   ```python
@@ -80,7 +54,7 @@ pip install Flask flask-cors python-dotenv
   ```
   (везде заменить `ЛОГИН` на свой ник PA)
 
-### 9. Запустить
+## 7. Запустить
 Зелёная кнопка **Reload** → открыть `ЛОГИН.pythonanywhere.com`.
 Страница метрик — `/metrics`.
 
@@ -94,10 +68,4 @@ pip install Flask flask-cors python-dotenv
 
 ## Обновление сайта
 
-Повторить шаги 1–2, залить новый zip, распаковать с заменой и нажать **Reload**.
-
-## Реальные фото товаров
-
-Фото лежат в `frontend/public/images/` как `choco_01.jpg…choco_10.jpg`.
-Чтобы заменить — положить новые с теми же именами, пересобрать фронт (шаг 1)
-и перезалить.
+Загрузить новую версию проекта, распаковать с заменой файлов и нажать **Reload**.
