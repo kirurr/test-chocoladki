@@ -6,8 +6,6 @@ visual versions (A — discount emphasis, B — brand emphasis). Clicks, timings
 survey answers are written to the database. The public `/metrics` page shows
 aggregates and a CSV export.
 
-Full brief and data schema — see [`spec.md`](spec.md).
-
 ## Stack
 
 - Backend: Flask + SQLite (a local `backend/dev.db` file, created on first run).
