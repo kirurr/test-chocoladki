@@ -25,13 +25,19 @@ unzip <имя-архива>.zip
 ```bash
 mkvirtualenv --python=/usr/bin/python3.10 chocolatki
 ```
-Подождать ~минуту, не прерывать. Приглашение станет вида `(chocolatki) ~ $`.
+Подождать ~минуту, не прерывать. Когда окружение создано и активно, в начале
+строки в консоли появится префикс `(chocolatki)`.
 
 Окружение окажется в `/home/ЛОГИН/.virtualenvs/chocolatki`.
 
-> Если `mkvirtualenv: command not found` — тогда `python3.10 -m venv venv` и дать
-> ему доработать (30–60 сек, это не зависание); путь окружения тогда
-> `/home/ЛОГИН/python-react-chocolatki/backend/venv`.
+> Если `mkvirtualenv: command not found` — создать окружение вручную и активировать:
+> ```bash
+> cd ~/python-react-chocolatki/backend
+> python3.10 -m venv venv
+> source venv/bin/activate
+> ```
+> (создание может занять 30–60 сек, это не зависание). Путь окружения тогда
+> `/home/ЛОГИН/python-react-chocolatki/backend/venv` — его же указать в шаге 6.
 
 ## 4. Поставить зависимости
 ```bash
@@ -44,6 +50,7 @@ pip install -r requirements.txt
 
 ## 6. Настроить web app
 - **Virtualenv**: `/home/ЛОГИН/.virtualenvs/chocolatki`
+  (если ставил через fallback — `/home/ЛОГИН/python-react-chocolatki/backend/venv`)
 - **WSGI configuration file** (ссылка вверху страницы) → стереть всё, вставить:
   ```python
   import sys
@@ -65,4 +72,5 @@ pip install -r requirements.txt
 
 ## Обновление сайта
 
-Загрузить новую версию проекта, распаковать с заменой файлов и нажать **Reload**.
+Загрузить новую версию архива, распаковать с заменой файлов (`unzip -o <архив>.zip`)
+и нажать **Reload**.
