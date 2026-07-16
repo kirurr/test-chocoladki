@@ -5,7 +5,6 @@ import time
 import uuid
 from pathlib import Path
 
-from dotenv import load_dotenv
 from flask import (
     Flask,
     abort,
@@ -22,8 +21,6 @@ from db import init_db, query
 
 BASE_DIR = Path(__file__).resolve().parent
 DIST_DIR = BASE_DIR.parent / "frontend" / "dist"
-
-load_dotenv(BASE_DIR / ".env")
 
 app = Flask(__name__, static_folder=None, template_folder=str(BASE_DIR / "templates"))
 CORS(app, resources={r"/api/*": {"origins": "*"}})

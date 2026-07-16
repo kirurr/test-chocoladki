@@ -35,9 +35,8 @@ mkvirtualenv --python=/usr/bin/python3.10 chocolatki
 
 ## 4. Поставить зависимости
 ```bash
-pip install Flask flask-cors python-dotenv
+pip install Flask flask-cors
 ```
-На free-тарифе БД — локальный SQLite, поэтому `libsql-experimental` не нужен.
 
 ## 5. Создать web app
 Вкладка **Web** → **Add a new web app** → **Manual configuration** → **Python 3.10**.

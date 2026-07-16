@@ -10,7 +10,7 @@ Full brief and data schema — see [`spec.md`](spec.md).
 
 ## Stack
 
-- Backend: Flask + libsql (Turso) with a fallback to local SQLite (`dev.db`).
+- Backend: Flask + SQLite (a local `backend/dev.db` file, created on first run).
 - Frontend: React + Vite. In production Flask serves the built `frontend/dist`.
 
 ## Development
@@ -31,7 +31,7 @@ npm install
 npm run dev
 ```
 
-Without the `TURSO_*` variables the backend writes to a local `backend/dev.db` file.
+The `backend/dev.db` file and its schema are created automatically on startup.
 
 ## Production build
 
@@ -45,21 +45,9 @@ python app.py            # Flask serves dist at http://localhost:5000
 # or: gunicorn wsgi:application
 ```
 
-## Turso
+## Deploy
 
-1. Create a database in Turso, get its URL and auth token.
-2. Copy `backend/.env.example` to `backend/.env` and fill in:
-   ```
-   TURSO_DATABASE_URL=libsql://<db>.turso.io
-   TURSO_AUTH_TOKEN=<token>
-   ```
-The schema is created automatically on startup (`init_db`).
-
-## Deploy on PythonAnywhere
-
-1. Build the frontend locally (`npm run build`), upload the whole project including `frontend/dist`.
-2. Web app → point the WSGI file at `backend/wsgi.py` (the `application` variable).
-3. Set the `TURSO_*` variables in the web app config.
+See [`DEPLOY.md`](DEPLOY.md) for PythonAnywhere deployment steps.
 
 ## Product images
 
