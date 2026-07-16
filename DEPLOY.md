@@ -35,7 +35,8 @@ mkvirtualenv --python=/usr/bin/python3.10 chocolatki
 
 ## 4. Поставить зависимости
 ```bash
-pip install Flask flask-cors
+cd ~/python-react-chocolatki/backend
+pip install -r requirements.txt
 ```
 
 ## 5. Создать web app
